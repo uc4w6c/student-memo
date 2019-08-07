@@ -1,0 +1,68 @@
+Spring I/O 2019報告
+Srping Frameworkのロードマップと5.2の新機能
+NTTソフトウェアイノベーションセンタ
+岩塚　卓弥
+
+Spring Framework5.2の新機能
+9/4にリリース予定　5.3は2020の2Q付近予定
+
+主要テーマ
+・コアコンテナの改善
+・リアクティブAPIno整備
+・関数型APIno整備
+・Kotlin対応
+
+リアクティブトランザクション/WebMvc.fnを中心に話す
+
+RSocketを利用したメッセージングAPIを追加
+R2DBCによるRDBMSへのリアクティブアクセスにおいてトランザクション管理が可能に
+→主要機能のリアクティブ対応がほぼ整った
+
+
+RSocket
+・L7のバイナリプロトコル
+　トランスポートにはTCP,WebSocket,Aeronを利用
+バックプレッシャが効く
+
+spring-boot-rsocketで検索すればいける
+
+コントローラに@MessageMapping("greet")みたいな感じで実行可能
+
+
+R2DBBC
+従来のトランザクション管理はスレッドモデルに依存
+　Threadlocalに保存される
+Reactive Streamsでは1トランザクションが同一スレッドで実行される保証はない
+
+
+Reactorの改善
+従来のデバッグ出力（リアクティブ）
+　Hooks.onOperatorDebug();
+→コストが高い
+
+ReactorDebugAgent.init();
+・バイトコード変換によってデバッグ情報を埋め込むことにより、デバッグ情報取得
+
+BlockHound.install();
+・ブロッキングAPIが呼び出されるとエラーになる
+
+WebMvc.fn関数型APIの整備
+
+
+Spring5.3以降のロードマップ
+・JDK15まで対応
+・Code Analysis Annotations
+ →Nullableとか
+・Hibernate ORMのバージョンアップ対応
+・GraalVM Native Images
+・Kotlin 1.4
+・Jetty 10
+
+Spring5では対応しないけどそのうちやること
+・JDK11 Baseline（Spring5はJava8ベース）
+・Revisiting Java Modules
+・Jakarta EE Alignment Javaxパッケージの話
+・Project Loom(Fibers)コルーチンとか
+
+
+

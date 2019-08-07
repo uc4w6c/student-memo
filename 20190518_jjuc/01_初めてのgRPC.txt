@@ -1,0 +1,69 @@
+初めてのgRPC
+前田賢太郎　LINE株式会社
+kencharos
+https://speakerdeck.com/line_developers/starting-grpc
+
+
+GoogleによるPRC
+HTTP/2でデータを送受信
+Protocol Buffersでデータ構造とPRCを定義
+DSLで
+
+gRPCの利点
+・APIファースト開発
+IDLでAPI仕様を作成→コード作成→実装
+・高い通信効率
+・マイクロサービスのようなシステム内部でのAPI定義通信に適している
+
+HTTP/2
+・内部でデータ宗純
+1本のリクエストで複数リクエスト/レスポンスを並列に扱える
+
+proto file->protoc->コード
+proto file   message/service
+
+REST(OpenAPI/Swagger)との比較
+・protoファイルはSwagger. よりも記述量が少ない
+・URL + HTTPメソッドよりも制約がゆるく、設計の自由度が高い
+
+
+Protocol Buffer
+
+protocコンパイラ
+　→protoファイルを読み込み、コード生成を行うCLIツール
+
+Protocol BuffersのプラグインでgRPC pluginを取得
+
+
+Stub Blocking Stubを使っておけば問題ないはず
+
+Client Streaming RPC
+　利用例が思いつかないみたい・・・
+　でも実装大変
+
+CountDownLatch・・・ライブラリ
+
+
+Bidirectional Streaming RPC
+ヘルスチェックをしているなど（チャットなども）
+
+Unaryが基本
+
+deadline Stub側で設定
+
+gRPCをブラウザから使うには未成熟な部分が多い。なのでAPI Gatewayを用意してそこまではREST
+Gateway→マイクロサービス間はgRPCみたいな
+
+
+gRPCはwebアプリケーションではない。
+　Protocol BufferesのメッセージはPOJOではないのでgRPCから外には出さない
+
+Spring BootでgRPCで使う
+　・LogNet/grpc-spring-boot-starterなど
+
+
+envoy
+→IPなど自動でやって分散してくれる
+
+
+

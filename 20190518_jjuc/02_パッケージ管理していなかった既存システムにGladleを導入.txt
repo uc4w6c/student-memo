@@ -1,0 +1,21 @@
+パッケージ管理していなかった既存システムにGladleを導入した話
+エムスリー　矢崎聖也
+https://speakerdeck.com/saiya_moebius/how-to-setup-gradle-to-improve-legacy-java-system?slide=2
+
+各jarの脆弱性
+　→
+
+真に困っていること + 変えるメリットを見極める
+　→パッケージ管理をすれば、ライブラリの追加が簡単・脆弱性チェック・gitへlibをアップしなくていい
+
+
+後付け導入にはGradleの方がオススメ
+
+Nexusがおすすめ（プライベートリポジトリの利用）
+
+OWASP dependency check
+
+手動でlibに入れることもありえる？運用でカバー？→アップ時に自動ciでGradleが動いて書き換えるから気づく
+
+テストコードがない。どうするか？→差分チェックでテストした。テストはそろえずに対応した。並行してテスト整備
+

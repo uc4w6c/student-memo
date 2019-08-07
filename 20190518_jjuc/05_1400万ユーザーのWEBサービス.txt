@@ -1,0 +1,8 @@
+1400万ユーザーのWebサービスを 15年運用して考える、 Javaである理由
+フリュー株式会社 鈴木真生さん
+https://speakerdeck.com/masao0127s/1400mo-yuzafalsewebsabisuwo-15nian-yun-yong-sitekao-eru-javadearuli-you
+
+・コンパイラの型安全
+・ユーザーの多さ
+
+

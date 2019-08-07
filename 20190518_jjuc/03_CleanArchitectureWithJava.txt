@@ -1,0 +1,25 @@
+先行開発！Javaでクリーンアーキテクチャ -- ゼロから始める新規開発
+成瀬　允宣 GMOインターネット
+
+https://nrslib.com/clean-architecture-with-java/
+
+
+Entities ドメインオブジェクト
+ 領域モデル
+
+Application Business Rules 
+ ユースケース
+
+Interface Adapters
+ Controllers、Presenters、UI
+
+
+成瀬さんにとって・・・
+アーキテクチャーとは
+　レールのこと
+  レールが野原だと自由。でもどうすればいいかわからない
+　レールがあれば自由ではないけど快適である。
+
+クリーンアーキテクチャーは？
+　依存関係逆転の原則に従っているだけ
+　
