@@ -1,0 +1,24 @@
+MasayaAoyama（青山 真也）
+Cyber Agent
+@amsy810
+
+Kubernetes完全ガイドを書いている
+
+Localの選択肢
+　Docker for Mac,Minikube,microk8s,kind kubernetes in Docker
+
+メリットデメリット
+Docker for Mac
+  ワンクリックで有効化可能
+
+　Mac上のDockerと同じレイヤに起動
+　type: LoadBalancer Servicceはlocalhostでbinding
+
+うう。。削除されてしまった・・・
+
+ホストOSとの関連
+　ローカルイメージをkindにインポート
+
+extraPortMapping
+  ホスト上のPortとNodeのPortのマッピング
+

@@ -1,0 +1,99 @@
+@_inductor_
+GitHub:@inductor
+ZOZO Tech
+
+https://speakerdeck.com/inductor/docker-kubernetes-through-the-ages
+
+Docker
+2013年3月リリース
+
+特徴（リリース時）
+　・LXCベースのコンテナ貸そうか
+　　・namespaceによるリソース隔離
+　　　・ホストから分離された空間に置かれる
+　　・cgroupsによるリソース制限（CPU,メモリなどをプロセスごとに制限）
+　・CLIなどを経由してLXCのAPIに命令を送る1つ
+　・AUFSというLayered Filesystemを用いたCoW
+　・ロギングや変更管理の機能などを独自に実装
+
+2ヶ月でOSS
+10個くらいのgoファイル
+
+カーネスの脆弱性が見つかったときの影響が大きい
+アプリケーションレベルで分離するにはいい感じ
+
+コンテナは新しくない
+
+chroot(1979(
+FreeBSD jail(2000)
+
+GoogleBrg(2003)
+ Kubernetesの全身
+
+なぜ急にDockerが流行ったのか
+
+Process(のちのcgroups）が生まれた(2006)
+ リソース制限、優先順位つけなど
+　systemd,CoreOS,Hadoop
+2ヶ月でOSS
+10個くらいのgoファイル
+
+カーネスの脆弱性が見つかったときの影響が大きい
+アプリケーションレベルで分離するにはいい感じ
+
+コンテナは新しくない
+
+chroot(1979(
+FreeBSD jail(2000)
+
+GoogleBrg(2003)
+ Kubernetesの全身
+
+なぜ急にDockerが流行ったのか
+
+Process(のちのcgroups）が生まれた(2006)
+ リソース制限、優先順位つけなど
+　systemd,CoreOS,Hadoop
+AUFS v1(2009(
+  レイヤー構造のファイルシステムサービス
+　gitのように複数の
+
+そのあと２
+　namespace周りのカーネス実装が進む
+
+2014年6月 Docker1.0
+Docker Hub
+  ・Dockerを中心としたアプリケーションのBuild,Ship,Runのプラットフォーム
+  ・コンテナランタイム
+
+2015年1月DockerSwarm
+
+2014年6月Kubernetes
+
+2017年1月　Docker1.13
+
+2017年4月Mody
+
+現在の特徴
+runc（かつてのlibcontainer)ベースのコンテナ貸そうか
+・CLIなどを慶祐してruncにえみ例
+ロギングなどを独自実装
+デリバリー基盤
+
+Kubbernetes
+ 特徴
+ Borgを10年運用して蓄積Google
+ Dockerとetcdをコア
+
+ APIを起点にして維持
+
+Kubernetes 1.0 2015年7月
+ Google Linux Fundation
+
+2016/12 1.5Kube
+
+まとめ
+  エコシステムは今ほどなかった
+  Kubernetesはコミュニティによって成り立っている
+  mobyというオープンソースがベース
+

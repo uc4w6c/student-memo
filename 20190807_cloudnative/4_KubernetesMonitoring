@@ -1,0 +1,41 @@
+@yosshi_
+吉村翔太
+NTTコミュニケーショズ
+
+https://speakerdeck.com/yosshi_/kuberntes-monitoring-ru-men
+
+最初に困ること
+
+メトリクス
+
+特定のPodへの接続が保証されない
+
+種類
+　・Counter
+　　単調増加する数値
+　・Gauge
+　　上下する可能性のある単一の値のその時点での数値情報
+
+Latency
+ tienn 
+
+Traffic
+ システムに対するリクエストの量
+
+Errors
+　失敗したリクエスト
+
+Probe機能を利用する
+Liveness Probe
+Readiness Probe
+
+Whitebox Monitoring
+Blackbox Monitoring
+
+監視の観点
+ノード自身
+System Component
+
+ノード自身の不具合の検知
+
+
