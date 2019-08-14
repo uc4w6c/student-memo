@@ -1,0 +1,52 @@
+明日からはじめられるEventStorming
+@yoskhdia
+FOLIO
+
+取り組むコツ
+書籍「Introducting EventStorming」
+
+ExternalSystem
+Event
+Issue
+recognizes
+をそれぞれだして対話
+
+Command/Decision イベントを起こすコマンドは？
+　→その後それを投げる人は誰？
+
+Read Model どういう思いでそのコマンドを投げている？
+
+Policy
+
+Aggregate
+
+
+まずはこれだけ
+Event 過去形で起こりうることを書く
+Issue 疑問や懸念。困っていることを書く
+OptinalとしてExternalSystem
+
+
+EventとIssue
+アカウントを審査した。
+アカウントを作成した。
+商品を探した
+Issue
+商品マスタがない
+分類されていない
+など・・・
+
+Domain expertはいない→Practitionerが頼みの綱
+
+本を読む場合
+本を読む（形式知）→理解（暗黙知）やってみてあーわかってなかったな。がわかる→
+設計物（形式知）→内省（暗黙知）
+その本に出会った理由は？
+　未知のものに出会うのは偶発的にしか気づけない
+これをモデル化したものが SECIモデル
+
+UserStoryMappingとの差異は？
+UserStoryMappingはユーザーファースト（UX)
+EventStorming Eventfirst
+
+
