@@ -1,0 +1,17 @@
+RED HAT
+上島さん(名前あってる？)
+
+REDHATの特徴
+・RHEL/JBossにバンドル
+・5年超の長期サポート
+・日本語サポート
+
+2007年参画からOpenJDKに貢献
+
+OpenJDK download
+Red Hat Developerではwindowsのみ対応
+
+LTSがあっても自動テストがないと恩恵が受けられない
+
+Alpineはだめ
+RHELだけ
