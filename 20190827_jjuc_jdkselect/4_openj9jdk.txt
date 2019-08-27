@@ -1,0 +1,18 @@
+OpenJ9 + openjdk
+IBM
+田中さん
+
+JIT as a Service
+年内にmasterにマージすることを目標に開発中
+JITコンパイルをサーバプロセスに委譲
+
+AdoptOpenJDK
+IBMをはじめとした多くのベンダーで開発
+
+OpenJ9の選択も可能
+
+docker pull adptoopenjdk/openjdk8-openj9
+で取得可能
+
+
+企業利用の場合は商用サポート
