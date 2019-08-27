@@ -1,6 +1,7 @@
 伊藤敬
 @itakash
 Oracle
+https://www.slideshare.net/oracle4engineer/oracle-jdk-20190827-oraclejdk
 
 OracleのJDKの位置付け
 変わらない仕様の策定と開発体制

@@ -4,3 +4,12 @@ AzulSystems のOpenJDK
 Hirokazu Kitamura
 
 Zulu Enterprise
+
+Zing
+
+java
+ class
+  JVM内で動的コンパイラ
+  c1 c2
+
+
