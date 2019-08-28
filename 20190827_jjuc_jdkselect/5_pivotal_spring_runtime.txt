@@ -1,0 +1,21 @@
+Pivotal Spring Runtime
+柳原伸也
+@yanashin18618
+
+Pivotal Spring Runtime
+JDKのRuntime
+
+OpenJDKのレイヤーだけでなく、その上で動くアプリケーション、実行環境、ランタイムも含めてサポートする
+
+Spring,tomcat,OpenJDKをサポート
+
+Springのコミッターを世界中でもっとも多く抱えているのがPivotal
+SpringFrameworkサポート
+Pivotal tc Server(tomcat), Apache Tomcatをサポート
+OpenJDK(Pivotalがビルド),AdoptOpenJDK
+
+Cloud Native BuildPacks
+を更新したものがPivotal BuildPack？
+
+Kubernets 50pods単位で$25,000年
+8コア $4,000年

@@ -1,6 +1,7 @@
 OpenJ9 + openjdk
 IBM
 田中さん
+https://www.slideshare.net/takakiyo/openj9openjdk
 
 JIT as a Service
 年内にmasterにマージすることを目標に開発中
