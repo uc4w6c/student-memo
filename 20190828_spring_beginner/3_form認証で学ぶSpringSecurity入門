@@ -1,0 +1,21 @@
+コイニー
+内立良介
+@b1a9idps
+
+Fashion Charity Project
+
+Core
+Web
+Config
+
+UsernamePasswordAuthenticationFilter
+
+spring-security-web
+spring-security-core
+
+認証・認可の流れを理解しておかないと
+Spring Security Wayに乗った実装ができない
+Filterだけで認証しちゃうとダサい
+
+サービス層に権限を設定してあげるのを推奨
+
