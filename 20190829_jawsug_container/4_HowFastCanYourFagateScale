@@ -1,0 +1,8 @@
+@pahudnet
+https://github.com/pahud/fargate-samples/blob/master/cdk/lib/cdk-stack.ts
+
+CloudWatchを利用することがオートスケールに時間がかかる理由
+
+自前で色々やってあげる？ことで10秒で10個Fagateコンテナが立ち上がった。すごい
+
+公式referenceに乗っているらしい。

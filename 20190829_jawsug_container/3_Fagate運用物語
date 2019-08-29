@@ -1,0 +1,11 @@
+曽根さん
+https://speakerdeck.com/soudai/fargate-story
+
+EC2で辛かったこと
+・AMI Ansibleの管理
+・手元の環境との乖離
+・deployの複雑さ
+
+サービスディスカバリー
+
+コンテナは鍵管理とか不要なので、初心者には安全
