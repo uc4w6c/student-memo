@@ -1,0 +1,26 @@
+懐かしのツイートと振り返る
+AWSコンテナアップデート
+
+ECS/ECRがSLA99.9%
+
+ECS起動モードでSecretsManager
+
+3/8 ECSでコンテナの起動順・停止順をコントロール可能になった
+3/28 Mesh
+3/29 任意のデプロイメントコントローラ(External)をAPIで呼び出し可能になった
+
+6/7 awsvpcが可能に。ENI 
+VPCフローログ
+セキュリティグループ
+
+CodeCommitで2つのマージ戦略が
+
+6/20 ECSのCloudFormation
+
+7/10 FluentBit〜
+
+7/23 AWS appMeshとのシンプルな統合に対応
+マネコンだけでCLIは無理
+
+7/26 ECRでイミュータブルなイメージタグのサポートを開始
+
