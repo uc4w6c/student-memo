@@ -10,3 +10,22 @@ val str = nullable?.let { XXX } : "bar"
  こんな感じでできる。すごい
 
 Docker化
+amazoncorretto:8
+→openjdk?? ECSで利用可能？
+
+Aurora
+64TBまで自動スケーリング
+
+RDSの中でAuroraを選択
+
+ECS
+タスク
+　Dockerコンテナとほぼ同義
+サービス
+　複数のタスクからなる。「APIサーバ」「HTTPサーバ」などの役割が1単位となる
+クラスタ
+　複数のサービスを束ねたもの
+
+システムマネージャーというAWSサービスで変数などを安全に管理できる
+
+CodeStar
