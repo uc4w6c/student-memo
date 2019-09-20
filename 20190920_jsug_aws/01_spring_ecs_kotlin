@@ -1,0 +1,12 @@
+白山　文彦
+AWS Japan アプリケーションプロトタイピングソリューションアーキテクト
+
+
+Javaで再起処理するとスタックオーバーフローしやすい
+kotlinだと高階関数を利用して末尾再起最適化が可能
+
+val nuulable: String? = "foo"
+val str = nullable?.let { XXX } : "bar"
+ こんな感じでできる。すごい
+
+Docker化
