@@ -1,3 +1,13 @@
 秒間数千万メトリクスを裁く監視基盤のアーキテクチャ
 huydx
+@dxhuy
 LINE Corp
+
+Observability
+サーバに入らずに情報を取得できること
+
+3つの柱
+metrics logging dis...
+
+圧縮アルゴリズム
+Facebook Gorilla Delta-Delta XORアルゴリズム
