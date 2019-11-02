@@ -1,0 +1,140 @@
+YoshidaShinya(@bitter_fox)
+LineCorp
+
+Big policy
+ソースコードレベルでのcompatibility(適合)を意識している
+
+genericsは1.3で入れようとしたが、1.5になった。
+　→長い開発期間が必要
+言語機能としての正解を見つけるまでは入れない(リリースしない)という方針
+
+正解を見つけるには？（開発者の意見が欲しい）
+
+Java9以前
+　JDK N - JDK N+1 - JDK N+2
+ それぞれでealyAccessBuildして利用してもらう
+ProjectEA
+ 実際にそれを試す人は本当に少数。フィードバックが集まらない。
+　→リリースまで時間がかかってJDKに反映されるまでに時間がかかる
+
+Java9以降
+　開発スタイルがアジャイルのようなスタイルになった
+  Preview feature(JEP 12) キーとなる考え方
+  JER() - 
+  previewは例えばJava10とかに入れる。これにより使いやすくする
+　問題なければJava11で本格に入れる(JSR)
+  preview機能は変更される可能性が高い。これを意識してもらうためにpreview機能はオプションを設定してJava起動しないと動かない。
+
+
+Java14+
+ Pattern Match
+ Record
+ シールド？
+
+
+# Local Variable Type Inference
+Java10から（varのやつ）
+
+dynamic typing?
+ No still typed statically
+
+よくないコードを書く開発者が使うとよくないのでは？
+ Yes → 良いコードを書く人のためのもの
+　
+LocalVariable FAQ 日本語で検索すると、日本語で翻訳した良い使い方記事が出てくる
+
+
+# Switch Expression(Preview)
+swatch文が値を返却可能になった
+Java14になるはず！
+
+boolean holiday = switch(day) {
+  case SATURDAY: case SUNDAY:
+    yield true;
+  default: yield isNationalHoliday(date);
+} 
+
+```
+swtch(day) {
+  case SAT, SUN -> true;
+  default -> false;
+}
+```
+でも書けるようになった！！
+
+jshell --enable-preview
+
+# Text Blocks(Preview)
+JEP 355
+
+
+# Pattern Match for instanceof
+if (o instanceof Point) {
+  Point p = (String) o;
+  // Exception at runtime
+}
+実行時Exceptionだけどこれを改善したい
+一度instanceofを利用したらそのブロックないは使いまわせる
+
+# Records
+(JEP 359)
+Java15+?
+
+値を持つだけのクラス
+record Point(int x, int y) {}
+Pattern Matchとかswitchとかと組み合わせて使う
+
+return switch (shape) {
+  case Box(var width, var heigh) -> return width * heigh;
+  case Circle(var r) -> PI * r * r;
+  // Need default
+  default -> throws Exception
+
+# Sealed Type
+ Swatch式でdefaultいらなくなる
+
+sealed interface Shape
+  permits Box, Circle {}
+
+record Box(int width, int height) implements Share {}
+
+まだ頭の中にあるだけの将来的な考え。変わるかもしれない。
+
+
+# Runtime
+10~13で違いはあまりない
+Jigsawの実装がいけてなくてJava9で遅くなった。
+10以降ちょっとずつ改善。
+
+Lambdaも実は遅くなっていた。
+
+Java9~13で改善した結果、利用する前と後でほぼ相違ない状態に出来た。
+
+GCの改善(G1がデフォルト)
+
+## ZGC
+JVMのpauseTimeが短い
+JVM pause is <= 10msに出来た。
+  大きなheap sizeでも守る
+Java11 に Experimental
+
+ZGCはチューニングのしやすさも意識している。パラメータを増やさないように
+
+pauseTime
+ 0.1msくらい1msより小さい。ParallelGC,G1GCは100msはかかる
+Throughput
+ ParallelGCよりはスループット落ちる G1GCとはほぼ変わらない
+
+Java12
+ Support for concurrent class unloading
+
+Java13
+ Uncommit Unused Memory
+ Linux/AArch64 platform
+Java14
+  macOS
+  Windows
+これらが完了したらGAされるはず
+
+Shenandoah
+ RedHat
