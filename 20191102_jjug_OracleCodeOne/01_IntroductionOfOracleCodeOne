@@ -1,0 +1,73 @@
+Introduction of Oracle Code One
+杉山貴章 @zinbe
+
+## Oracle Code Oneとは
+Oracleが主催する年一回の開発者向けイベント
+　・最近はOracle OpenWorldと同時開催
+世界中からJavaエンジニアが集まる
+
+2017年まではJavaOne、2018年からCodeOneに名称変更
+・Java以外のさまざまな言語や技術も扱う
+・JavaScriptの話題が増えた(Oracle jet?)
+・クラウド関連の話題が増えた
+
+Javaの開発者が大多数で他のエンジニアとのコラボレーションは進んでいない
+
+
+## セッション内容
+Graalがかなり増えたやはりホット
+
+Java Keynote: Javaに関する新しい発表
+ Georges Saab: Oracleの開発責任者　@gsaab
+  現在のJavaの開発責任者
+
+The Future Now(今年のCodeOneのキーワード)
+
+
+release timeが6ヶ月になって（速くなって）
+Javaが出来た当初と比べると世の中の流れのスピードがかなり速くなっている。
+　→Javaもそれについていかないといけない。だからリリースサイクルが変わった
+
+そしてJava13がOracleCodeOneの翌日にリリースされた。
+
+今まではJCT(JavaCommunityProcess)で仕様策定→OpenJDKなどのコード実装
+
+半年に1回リリースの話が出たときは主要メンバーも無理だ！となった。
+同時に危機感も持っていたからなんとかしようという動きになった。
+
+今までは標準仕様作成→
+→今も標準仕様を策定するというのは変わってはいない。互換性などを意識している
+
+Bruno Souza(SouJavaブラジル)  : OracleCodeOneといえばこの人
+Gil Tene(Azul Systems)
+
+
+## 開発ツール
+多くのJava開発者が最新のライブラリやフレームワークに素早くアップデートしている
+
+
+Brian Goets(Java Language Architect, Oracle) @BrianGoets
+ Javaの主要な開発者の一人
+
+ランタイム(JVM)の性能向上
+Mikael Vidstedt(Director, JVM Development)
+
+
+### 進行中の主要なプロジェクト
+#### Project Amber
+ ・Java言語に関する小さなアップデート（今回のswitchなど）
+#### Project Valhalla
+ ・JVM, Java言語の型に関する拡張
+#### Project Panama
+ ・ネイティブコードとのインターフェース
+#### Project Loom
+ ・軽量スレッド
+
+
+Records(JEP 539)これから入る！
+データを保持させる
+ beanだったのを、 簡単に
+
+Value Types
+OverHeadが大きい。（配列参照のこと）
+これをプリミティブ型みたいに1つの配列参照に入れる。
