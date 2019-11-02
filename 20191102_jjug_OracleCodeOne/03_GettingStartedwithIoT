@@ -1,0 +1,25 @@
+Yusuke Yamamoto
+#dev6016
+@yusuke
+5代目Java Champion
+
+Raspberry Pi
+ The Pi4J Project (library)
+
+電源食うし、大変だからArduinoがいいよ
+ArduinoBoard
+
+・開発の流れ
+Design a circuit
+Write a Sketch
+Compile and Transfer sketch
+Run
+私達ソフトウェア開発者でも簡単
+
+Breadboard
+・ピンを刺すやつ
+
+Arduino IDE
+ Arduino Languageを利用(Javaではない)
+
+arduino starter kit
