@@ -1,0 +1,40 @@
+マイクロサービスアプリケーションを開発するためのJavaライブラリ群
+フレームワーク
+
+Takashi Ito @itakash
+OracleCorporation
+
+
+
+helidon SE
+・マイクロフレームワーク
+・少ないメモリ容量で稼働
+・関数型
+・リアクティブ
+・わかりやすいプログラミング
+・GraalVM
+
+helidon MP
+・MicroProfile標準
+・少ないメモリ容量で稼働
+・宣言型
+・DI対応
+
+
+HelidonMPはHelidonSEの上に乗っかっている
+
+
+Roadmap
+
+現在1.2
+
+2019Q3
+・MicroProfile 3.0
+・UCP Support
+・Hibernate Suppport
+
+2019Q4
+・Commercial support
+・More GraalVM support
+・HTTP/2
+

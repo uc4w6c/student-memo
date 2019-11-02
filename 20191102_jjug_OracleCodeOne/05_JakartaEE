@@ -1,0 +1,28 @@
+Takashi Ito @itakash
+OracleCorporation
+
+Jakarta EE@Presens
+
+JavaEE7までは同期でREST
+JavaEE8で非同期のAPI呼び出し（Reactive REST)
+
+JakartaEE
+EE8 → EE9でnamespaceが変わる！！！
+ 11/1に一気に変えるということが確定した！
+ 時間がかかるからrelease日未定
+
+ Removal of deprecated specsが重要になりそう。
+ jspなくなるとかの話
+
+ まずはjavaxからなくすものを決めてから以降するから時間かかる
+
+
+新しいAPI
+ NoSQL
+ MVC/Krazo
+ などなど
+
+
+FYI:さらに先にやりたいこと
+・Microservices
+・Native integration with Kubernetes
