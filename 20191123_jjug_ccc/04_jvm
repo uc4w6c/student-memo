@@ -1,0 +1,38 @@
+JVM入門 -Javaプログラムが動く仕組み
+Abe Asami
+@aa7th
+
+java HelloWorldの動き
+JVM起動-ロード-リンク-初期化-mainメソッド実行
+
+メソッドを呼び出すとフレームが作成される。
+フレームの中は、メソッドスタック・ローカル変数などが格納
+
+スレッドダンプ
+とある瞬間のスレッドの状態を出力したもの
+jstack jcmdコマンドで出力可能
+
+
+JVMには種類がある
+・HotSpotVM
+ HotSpotというJITコンパイラ
+
+・GraalVM
+GraalというJITコンパイラ
+
+
+Heap- Javaプログラムで生成したオブジェクト
+native- metaspace, スレッドスタック, JVM自体
+がメモリの格納場所
+
+public static void main(stirng[] args) {
+  List<Object> list = new ArrayList<>();
+  while(true) {
+    Object object = new Object();
+    list.add(object)
+  }
+}
+これでold領域に移動するはず
+whileの中でObject生成するだけだとyangでGCされる
+
+

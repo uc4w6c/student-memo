@@ -1,0 +1,10 @@
+こわくないソースコードリーディング生活
+進藤　遼
+@shindo_ryo
+
+https://speakerdeck.com/rshindo/jjug-ccc-2019-fall
+
+PropertyDescriptors
+Beanのプロパティをgetter/setter経由でアクセスするためのクラス
+OSSでよく利用される
+
