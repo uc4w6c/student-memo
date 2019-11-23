@@ -1,0 +1,42 @@
+分散トレーシングの技術選定・OSS 貢献と Stackdriver Tracer での性能可視化・改善
+M3, Inc.
+Seiya Yazaki
+Kohei Yamato
+https://speakerdeck.com/saiya_moebius/distributed-tracing-case-study
+
+
+@saiya_moebius
+
+分散トレーシング
+システムの中の処理をトレースし、
+　どの処理に時間がかかっているのか
+　などを可視化する
+
+shellなどは秘伝のタレ状態。性能を可視化したいだけなのに・・・
+Zipkinが登場
+ →いい！と思った。
+　→だけど運用つらい。
+
+OpenCencus, OpenTracingという2大APIga現れた。
+
+OpenCencus or OpenTracing
+M3はOpenCensusを選定
+・ドキュメント
+・個別pluginの実装の質
+・開発の活発さ
+
+しかし選定している間にOpenCencusとOpenTracingが合流
+OpenTelemetry(2020GA)
+→先の話
+
+トレーシングのベンダー・SDK選定
+Zipkin, Azure Monitor, Datadog, Elasticsearch
+
+M3 - Stackdriver(GCP)
+
+
+
+
+@daiwahome()
+
+
