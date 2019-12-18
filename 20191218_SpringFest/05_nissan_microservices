@@ -1,0 +1,101 @@
+NissanConnectの舞台裏で動く
+Spring Boot / Spring Cloud
+ ~Microservices実運用の事例~
+
+Daisuke Morishita
+Nissan Motor Co., Ltd
+
+ヤフーだった。Java黒帯
+2019/4に転職
+
+コネクテッドカーとは
+　色々繋いでサービス提供
+
+スマホアプリから利用可能なサービス
+ - マイカーファインダー
+ - ドアロック
+ - エアコンを事前にかけるなど
+
+ナビからCar Gateway(Cloud)に接続
+Car Gateway - Service Layes Backends
+Service Layes Backends-> Nissan Backend For Frontendにスマホや日産社内から接続
+
+Boot(Web, JPDA, Redis, RabbitMQ, Security, Actuator)
+Cloud Sleuth, Stream, Netflix zuul
+
+今後やりたい
+Cloud Config, Bus
+サーキットブレーカー
+
+第3期
+  スカイラインと新プロジェクトが同時に始まる
+　新アプリ向けにBFFを導入
+
+第4期
+課題
+  - まだ分離しきれていない初期backend
+   - 
+  - Microservices特有の難しさの表面化
+　　バージョン管理、デプロイ、運用
+
+構想
+　-システム状況の可視化と能動的な課題発見・対応
+　-仕組みで対応
+   SpringConfigなど
+
+システム稼働状況の可視化
+　-複雑化して状況把握が難しい
+　-システム全体の可視化
+　　- ログ
+　　- トレース
+　　- メトリクス
+
+ログ
+　slf4j + logback
+  spring boot のProfileを利用して環境ごとにログフォーマットを最適化
+　　logback-spring.xmlを利用
+
+　環境ごとのフォーマット使い分け
+　　- 開発及びテスト用の環境：リアルタイムにトレースするため人が見やすい形
+　　　・標準的な見慣れている形式（標準出力）
+　　　・スタックトレースはローカル環境では改行あり。他では1行にする。改行されると1スタック分で個別のログになるため）
+　　- 本番環境
+　　　時間が立ってから確認するため、AzureのLogAnalyticsでクエリでの検索と表示がしやすい形
+　　　　・JSON
+        ・スタックトレースは1行化
+　　　　　- logbackでみればわかる
+  Microservice同士が通信する際の送受信部分にログを仕込む
+    ServletFilter
+    ClientInterceptor
+    RabbitTemplateに対するAspect
+    ???
+
+トレース
+   Spring Cloud Sleuth
+   1つのユーザー操作を紐づける
+　スターターを入れる
+
+メトリクス
+　APIごとに集計するQueryを作って出力
+　ベンダーニュ０とらるを目指すならmicrometer
+  Azureなら・・・
+
+PCF / Spring Boot Actuator
+  PCFにデプロイしたBootアプリにActuatorを組み込むとPCFnoAppManager UIが拡張
+
+
+コネクション関連のトラブル
+　PCFにdeployしたときにDatasourceインスタンスが自動で再構成されて、コネクション数が想定より少ない
+
+RestTemplateで内部でHttpUrlConnectionが一部のHTTPメソッドが利用不可
+　->HttpClient使ったけど、個別にコネクションプーリングしている。同一ドメインに対して同時リクエストが2つまで
+　　　設定で広げる
+LoadBalancerによるサイレント切断
+  LBは途中でサイレントで切断されてしまう。これでタイムアウトしてしまう。
+  HttpClientBuilderで明示的な設定をJavaConfigで行う
+    定期的にリフレッシュする。LBより小さい数値で
+     Redisなどでも発生する疑いある
+
+課題
+-DBコネクションのテストクエリおよび実行設定の見直し
+-Redis系のコネクションも
