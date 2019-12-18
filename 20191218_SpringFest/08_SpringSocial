@@ -1,0 +1,49 @@
+楽天
+田中竜介
+
+SpringSocialはEOLになっている
+
+Spring Social -> Spring Security OAuth2
+
+OAuth2.0を拡張してOpenID Connectが作成された
+
+OAuth 2.0
+- 認可サーバ
+- アクセストークン
+
+OpenID
+- IDプロバイダー
+- IDトークン
+という名前に変わっている
+
+OpenIDは最後にIDトークンを検証するという仕様が追加された
+
+Spring Securityではクライアントとしての利用が前提（認可の開発は今はしない）
+Spring Security OAuth2 client - クライアント実装が簡単に
+Spring Security Core - ユーザー認証のフローを提供
+Spring Boot Auto Configure - Auto-configurationによるSpringSecurity のBeanを提供（手動設定不要）
+
+Gradle
+stater-security
+security-oauth2-client
+(JWTのやつ）
+
+application.yaml
+  oauth2:
+    client:
+      registration:
+        facebook:
+          client-id:
+          client-secret:
+        google:
+          client-id:
+          client-secret:
+みたいな感じ
+
+SecurityConfig
+  configure(HttpSecurity http)の中で
+　　http.authorizeRequesta().oauth2Login()
+
+Controller
+  @AuthenticationPrincipal OAuth2User をメソッドの引数に
+
