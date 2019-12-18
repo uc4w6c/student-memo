@@ -1,6 +1,7 @@
 Line
 長谷部　良輔(@be_hase1014)
 OA: Official Accountの開発
+https://speakerdeck.com/line_developers/examples-of-using-spring-and-webflux-in-the-chat-system-for-line-official-accounts
 
 Why Spring(boot)?
  - DI/AOP
