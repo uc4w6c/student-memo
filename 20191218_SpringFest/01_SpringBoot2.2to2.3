@@ -1,0 +1,86 @@
+RSocket
+
+micrometer
+
+
+Spring2.2
+-Java13
+  wikiにJavaバージョンごとの互換性が書いてある
+-Dependency managementの更新
+
+-新機能
+ -重要な機能
+  バナーの変更
+ -RSocket
+  Reactive Streams
+   メッセージのやりとり
+ -Health Indicator Group
+   Kubernetesのライブラリ？
+ -Immutable Configuration Properties
+   @DefaultValueアノテーションを利用してコンストラクタインジェクションでデフォルト値をセット可能
+   Kotlinの場合はアノテーションではなく、通常のセットの仕方で利用可能
+　　val timeout: Duration = Duration.of(10)
+ -junit5
+   junit4をブレイクするわけではない。
+ -Performance
+   -起動時間の改善
+    GCを少なくする。メモリ消費も少なくする。
+　　configurationfileが
+   -遅延初期化
+　　アプリケーションコンテキストを遅延初期化可能
+　　Beanは要求がなければ作成されない
+   -ランタイムのパフォーマンス改善
+
+  ダウンロード数Top3
+    1.中国
+    2.アメリカ
+　　3.インド
+　　6.日本
+
+ クライアントの内訳
+　　IDE->Web->CLI
+    中国を除くとIDE=WEB->CLI
+
+
+------------------------------------------------
+ここから日本人の方（後で名前確認）
+
+GraalNative Sport
+  GraalVM Native Image
+    
+
+Spring Cloud Stream
+  マイクロサービス間のメッセージングで利用される
+  Lambdaでかけるようになった
+CircuitBreaker
+  以下の4つの実装から選択可能
+
+Dockerfile
+   書き方バラバラだし脆弱性・・・
+  Cloud Native Buildpacks
+  Dockerfileを書かずにイメージ作成可能
+
+
+------------------------------------------------
+spring framework 5.3
+ -JDK17LTSに向けた準備
+  完全サポートするか検討中
+ -GraalVM native images対応
+ -5.Xテーマの改善（RSocket, Coroutines)
+
+SpringBoot2.3
+  -Containerサポート
+  -Kubernetesサポート
+    選択肢が増える
+  -依存ライブラリアップデート(Spring Data)
+   ドライバーのアップデートをしないといけない
+　（mangoDB)
+  -2.3から6ヶ月リリース周期へ変更(Apr 2020)
+   2.4が10月リリース予定
+
+サポートポリシー
+  6ヶ月周期になることで変更になる
+  Oct 2020 SpringFramework 5.3 - SpringBoot2.4GA
+  November 2020 Spring Boot2.1EOL
+  December 2020 SpringFramework    EOL
+
