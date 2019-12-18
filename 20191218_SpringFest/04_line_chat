@@ -1,0 +1,112 @@
+Line
+長谷部　良輔(@be_hase1014)
+OA: Official Accountの開発
+
+Why Spring(boot)?
+ - DI/AOP
+ - 豊富な Integration
+    MyBatis, FreeMarker/Thymeleaf, spring-boot-actuator,
+    プロメテウス
+ - Profiles & Configuration
+ - RESTful API
+    webmvc, webflux
+ - RPCとの組み合わせも良い
+    spring with Armeria(LINE の提供しているOSS), Spring with gRPC
+
+LINEチャット・・・公式アカウントのためのもの
+サーバ数(150+)
+月間メッセージ数(4億)
+同時接続(5万+)
+
+チャットシステムに求められるもの
+　リアルタイム通信
+候補
+　- Poling
+  - Long Polling(Comet)
+  - Server Sent Events(SSE)
+  - WebSocket
+  - 今ならgRPC-WEB,RSocket
+SSEを採用
+　双方向通信は不要。テキスト形式でも問題ない
+　WebSocketと比較するとシンプル(HTTP1.1 chunkedベース)
+
+servletは1リクエストに1スレッド（コネクションはりっぱなし）
+LINE Chatは同時に5万接続
+　1つのサーバで500スレッド用意したとしても、サーバが100台必要
+
+ServletでのリクエストはInput/OutputStreamを用いたBlocking IO
+Spring5から追加されたWebFluxを採用
+
+
+WebFluxとは
+　Spring5から登場
+　　NonBlockingなWEBフレームワーク
+    デフォルトだとNettyが利用される。tomcatではない（できるけど）
+
+　各リクエストをNon Blockingで処理することで1つのEvent Loop Threadで複数リクエストを捌ける
+　Blockするコードを書くと性能が大幅に悪化かつ、デッドロックする可能性ある。
+
+メッセージがリアルタイムに届く流れ
+
+TalkServer
+-
+EventReceiver
+- EventReceiverからすぐにKafkaに書く
+   Eventの再利用やリトライがしやすくなる。
+　Redis Clusterにそのまま書くとダウンした時に大変。Kafkaはその辺り強い
+Kafka
+-
+EventProcessor
+1- Redis Cluster
+  Redis に Publish
+  Redis5から追加されたRedis Streamsを使えばもっと簡単になりそう
+
+2-Redis Cluster(pubSub)
+  
+
+モバイルだと電波の問題などで再接続を考慮する必要がある
+　再接続をサポートするために、Publishと同時にリストとしても保持
+　再接続に最後に取得した Event IDを
+
+
+チャットシステムに求められるもの(その2)
+  - メッセージの送信
+　- 過去メッセージの取得
+　- メッセージの検索など
+
+　Spring-webmvcで実現している
+   RESTfulAPI - MessageGateway - TalkServer-&& HBase
+Sharding
+
+  JDBCがBlocking
+　がっつりしたビジネスロジックをWebFluxで実装するのは少しびびった
+　　小さくて確実に向いているコンポーネントから試そう
+
+チャットシステムに求められるもの(その3)
+  - 画像、動画、音声の取得
+   - 認証などの問題で直接アクセスは不可。プロキシなどが必要だった。
+
+  Content Proxy(webflux)
+  認証して左から右に渡すだけ。Non Blockingが向いている
+
+  Elasticsearchが高負荷になってレイテンシが高まってThread Busyとなっている
+　　-> Circhuit breakerでfailing fastして対処
+
+
+WebFluxのあれこれ（react)
+  Netty OOME
+  API call でtimeoutが頻発するとOOME(Out of memory Exception)でサーバが落ちる
+
+NettyからReadTimeoutExceptionが発生すると,suppressedExceptions(List<Throwable>)が肥大化して落ちる
+immutableじゃないクラスはシングルトンにするな！
+
+困った話2
+Blocking DNS Resolver
+  InetSocketAddressを利用したblocking DNS resolverを使用
+　　nettyのnon-blocking DNS resolverを使用しましょう。
+
+WebFilterでContextに入れておく
+
+
+BlockHound
+  Blockingコールを検出してくれるJava
