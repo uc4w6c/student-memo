@@ -1,0 +1,96 @@
+RSocket徹底入門
+Toshiaki Maki(@making), Pivotal
+https://blog.ik.am
+
+資料:https://bit.ly/jsug-rsocket
+
+RSocketとは
+　https://rsocket.io
+  リアクティブと呼ばれていた
+バイナリプロトコル
+元々ドキュメント用に作られたテキストベースのHTTPとは異なり、最初からサービス間通信で使うことを想定されていた
+
+TCP/HTTPレイヤーの上のレイヤー
+JSON/CBOR/ProtocolBuffersの下のレイヤー
+
+Reactive Foundationで開発
+
+4つのInteraction Model
+ -Request Response
+  1つのメッセージを送受信
+  多重通信(HTTPは1回ごとに開いて閉じる)
+ -Request Stream
+  1メッセージを送信・受信を続ける
+ -RequestChannel
+  送信受信ともにストリーム
+ -Fire and Forget
+  1送信、レスポンスなし
+  CriticalでないEventログ送信などに利用される
+
+Duplex
+  双方向通信
+    リクエスター・レスポンダー
+　　サーバからリクエストすることも可能
+
+Reactive Stream
+  Subscriber/Publisher
+  Publisheer - データのストリームを表現
+
+Session Resumption
+  途中で通信断が発生した際に再開可能
+  Resumeで途中からデータを再開
+  Backpressureが効いて
+
+Leasing
+  Responderがリクエストを制限する
+  RequesterがResponderを圧倒しないようにする機構
+  Rate Limiter / Circuit Breakerのように使える
+
+多言語対応
+　Java,JavaScript,C++,Kotlinが優先的に開発されている。
+  gRPCだとプロキシを介さないといけないが、RSocketはそのまま利用可能
+
+  Mono,Flux
+  Mono - 1つを表現
+  Flux - 複数を表現
+
+Payload
+Metadata - ヘッダー　処理の振り分けに利用 Routingなど
+Data - Data
+
+CLI
+  RSocket CLI
+    Clientと簡易Server機能を提供
+  RSC
+    Client機能のみ提供
+　　native コンパイル
+
+Javaの場合はresumeで通信断に対応可能。通信できるようになったら途中から再開する
+
+RSocketのプログラミングモデル
+　RPC Style - https"//github.com/rsocket/rsocket-rpc-java
+  Messageing Style - Spring のMessage
+
+
+## Spring FrameworkのRSocketサポート
+　TCP or WebSocket
+  WebSocket + webfluxの場合はHTTPサーバと同じポートが利用可能
+
+## RSocketの事例
+　Facebookが世界で一番利用されている
+　GraphQL
+  HTTPでポーリングしていたけど性能悪い
+
+  RSocketでサーバ側で変更あったらサーバから通信する仕組みになっていた
+
+  Pvotal
+   Prometheus
+     メトリクス取りたいサーバのエンドポイントを叩く必要がある。
+　　　Firewallの外からスケールアウトしたアプリにアクセスするとLBされてしまう。
+　　　RSocketProxyを作成した。
+　　メトリクスをとって欲しい側のサーバからProxyに接続　
+
+
+まだまだエコシステムが整っていない
+つらいはず
+
