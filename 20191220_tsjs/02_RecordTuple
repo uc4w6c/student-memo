@@ -1,0 +1,24 @@
+Ryoma Abe
+あらや
+
+
+JS mutabillity
+
+const だけどmutable
+
+Object.freeze
+ thtrowされない
+　shallow freeze
+
+Record&Tuple
+ -> Statege1  2019/4
+    State4でリリース
+
+const record = #{
+    a:1 ,
+    b:2 ,
+};
+#をつけるとrecordで書き換え不可
+
+const tuple = #[1, 2, 3];
+書き換え不可
