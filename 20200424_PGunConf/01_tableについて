@@ -1,0 +1,11 @@
+01_Tableについて
+
+Postgresはinitdbにデータが格納される
+ここの data?
+ディレクトリ配下にdatabaseが
+databaseの下に各テーブルがファイルとして格納されている（バイナリ型）
+
+ファイルは8Kごとに格納
+
+空き容量はFreeSpaceMapにて管理
+vacuumeするまでは前のデータが残る
