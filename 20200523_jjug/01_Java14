@@ -1,0 +1,23 @@
+Java14新機能
+きしだなおき
+LINE Fukuoka
+@kis
+
+
+16 JEPs ( JEPs - メジャーな新機能)
+
+
+GC
+ - CMS削除
+ - ParallelGC Deprecate
+
+
+Text Blocks
+ 最初はバッククォートだったけど
+ バッククォートは囲むものでは最後の砦だから今使うのはもったいないから"になった
+
+
+Records
+ equalsで生成されるバイナリはinvokedynamic を利用しているため、
+ 今後Java14でコンパイルしたコードを未来のJavaバージョンとかで利用したときに
+ VMが改善されていたらそれをそのまま利用することができる
