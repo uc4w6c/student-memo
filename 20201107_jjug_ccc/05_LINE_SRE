@@ -1,5 +1,8 @@
 LINE Fukuoka SRE Manabu 
 
+https://speakerdeck.com/line_developers/sre-in-line-shop-team
+
+
 https://linedevday.linecorp.com/
 にマイクロサービスの資料あり。
 
@@ -140,5 +143,16 @@ Ansibleでプロビジョニング
 
 #### 検討・準備したこと
 k8s環境における
+
+
+## 質問
+ - Distributed TracingでRadis cacheｍできちんと取れていたのはRedis側にエージェントを入れている？接続するライブラリ側？
+   -> クライアント側でコード書いてやっている
+
+ - メトリクスで役に立つもの
+   Request, Responseのサイズ
+   Requestがでかいとおかしいぞってわかるし、Responseが小さいとそれもバグでは？となる。
+
+
 
 
