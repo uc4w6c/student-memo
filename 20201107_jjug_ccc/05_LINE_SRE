@@ -1,0 +1,144 @@
+LINE Fukuoka SRE Manabu 
+
+https://linedevday.linecorp.com/
+にマイクロサービスの資料あり。
+
+Armeria入門
+JSUG勉強会でLT 7/20
+
+https://github.com/line/armeria
+
+### マイクロサービスで検討が必要なこと
+- Distributed Tracing
+- Cascading Failerを防ぐためのCircuit Breaker
+- Graceful Degradationを考慮したサービス分割
+- Service Discovery
+
+### Distributed Tracing
+分散トレーシング
+
+API呼び出しとそれにかかった時間の可視化
+Zipkinを使用
+
+### Circuit Breaker
+呼び出し先に障害が発生した場合、それが解消されるまで通信を行わないようにする
+
+https://ameria.dev.docs/client-circuit-breaker
+
+### Graceful Degradation
+- 障害が発生した場合に、レスポンスの一部の品質を低下(e.g. キャッシュされた古いデータを使う)させることで本当に大事な部分を守る
+- マイクロサービスの場合は以下を意識してサービスを分割
+ - サービスに障害が発生した場合でも
+
+### Service Discovery
+Central Dogma 機能概要
+ - 設定リポジトリサービス
+ - watchしておけば変更通知を受け取れる
+ - バックエンドにGitを使用
+ - クライアントライブラリ(Java, Go)
+
+#### ユースケース
+- 動的に設定したいものをかんり
+  Rate limit設定, A/Bテスト, etc
+
+
+### SLI
+SLO
+
+LINE Shopでは API availability(成功率), API latencyをSLIとして使用
+ The Site Reliability workbookに掲載されている事例を参考にした
+
+Prometheus+Grafanaで可視化
+
+### サービスの信頼性の階層
+
+### モニタリング- Alerting
+- Error
+ - Latencyの悪化
+ - Error responmse/secの増加
+
+- Warn
+ - CPU usage
+ - GC
+ - サーバが落ちた
+
+### 収集しているメトリクス
+
+-APIごとのメトリクス
+ - Server/Client latency(50th, 90th, 99th)
+ - Requests/sec
+ - Error responses/sec
+
+- ログ
+
+
+### Armeriaがexportするメトリクスの例
+ - Request/Response size
+  - 呼び出し側の問題でRequest sizeが増えてサーバの負荷が上がる可能性をモニタリング
+
+
+
+### アプリケーション固有のメトリクスの例
+
+- バージョン(いつ、どのバージョンがデプロイされたのか?)
+ - アプリケーション
+ - フレームワーク
+   - Armeria 
+   - SpringBoot
+ - JVM
+
+
+### モニタリング - Batch job
+バッチジョブもPrometeusでモニタリングする
+
+### on-call
+- on-call担当を毎週2人で持ち回り
+- チームで作成したガイドを元にアラートの対応を行う
+
+- サービス影響がある場合は関係するChannelにエスカレーション
+- 発生したissueのチケット登録
+
+
+### ポストモーテム
+- サービス障害が発生した場合に書くレポートや、その取り組みのこと
+
+
+#### 何書く
+- 影響範囲
+- 原因
+- 状況の時系列
+  再発防止策の検討
+- 障害検知に問題がなかったか?どう改善するか?
+
+### キャパシティプランニング
+- 元旦直後が最もトラフィックが増えるため事前にスケールアップやスケールアウトを行う
+
+
+## その他のトピック
+###  突発的な過負荷への対処
+ - 要員
+  - TVで取り上げられる
+  - 不具合によるリクエスト増加
+ - 対処
+   - Rate limit
+     (一定のリクエストをrejectして過負荷状態になることを防ぐ)
+   - サーバのスケールアウト
+
+### LINE ShopでのRate limit
+ - Central Dogmaで管理
+ - Armeria の ThrottlingServiceを使ってアプリに実装
+
+
+
+### k8s
+#### なぜ使うのか
+マイクロサービスにはVerda(Private Cloud)のVMと物理サーバで使用中
+Ansibleでプロビジョニング
+ - スケールアウトに時間がかかる
+ - 突発的なリクエスト増加に素早くスケールアウトしたい
+- Verdaではk8sのサービスも提供されている
+
+#### 検討・準備したこと
+k8s環境における
+
+
