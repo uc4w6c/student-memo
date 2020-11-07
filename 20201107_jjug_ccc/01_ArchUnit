@@ -1,0 +1,10 @@
+リクルート
+
+ArchUnit
+
+パッケージ間の依存関係を宣言して、依存関係違反をしていた場合はテストエラーを出力する。
+
+
+### 参考
+- https://github.com/ykoyano/ArchUnit-Examples-Application-Analysis
+
