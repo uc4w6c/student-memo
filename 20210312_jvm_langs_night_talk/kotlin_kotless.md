@@ -1,6 +1,7 @@
 # Kotlin + Kotlessで始めるServerless アプリケーション開発
 @bulbulpaul
 AWS Japan
+https://speakerdeck.com/bulbulpaul/kotlessdehazimeruserverlessapurikesiyonkai-fa
 
 
 Kotless
